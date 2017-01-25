@@ -5,35 +5,6 @@ import './App.css';
 const fccRecent = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
 const fccAllTime = 'https://fcctop100.herokuapp.com/api/fccusers/top/alltime';
 
-function getData(url){
-  function checkStatus(response){
-    if(response.status === 200){
-      return Promise.resolve(response);
-    }else{
-      return Promise.reject(
-        new Error(response.statusText)
-      );
-    }
-  }
-
-  function getJSON(response){
-    return response.json();
-  }
-
-    return fetch(url)
-    .then(checkStatus)
-    .then(getJSON)
-    .then((data) => {
-      // console.log('DATA', data);
-      return data;
-    })
-    .catch((err) => err);
-}
-
-let fccRecentData = getData(fccRecent);
-
-console.log(fccRecentData[0]);
-
 class App extends Component {
   constructor(props){
     super(props);
