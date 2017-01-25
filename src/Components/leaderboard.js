@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 
-class Leaderboard extends Component {
-
-  render() {
-    return (
-      <div className="Leaderboard">
-        My Leaderboard
-      </div>
-    );
-  }
+const Leaderboard = (props) => {
+  console.log(props)
+  console.log(props.rank.map(x => x.username))
+  return (
+    <div>Name: {props.rank.map(x => x.username)}</div>
+  )
 }
 
 export default Leaderboard;
