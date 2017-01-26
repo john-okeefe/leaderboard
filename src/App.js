@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Leaderboard from './Components/leaderboard';
 import './App.css';
 
-  const fccCharts = [{
-    fccRecent: fetch('https://fcctop100.herokuapp.com/api/fccusers/top/recent'),
-    fccAllTime: fetch('https://fcctop100.herokuapp.com/api/fccusers/top/alltime')
+  const fccCharts = [{    
+    fccRecent: fetch('https://fcctop100.herokuapp.com/api/fccusers/top/recent').then(response => response.json()),
+    fccAllTime: fetch('https://fcctop100.herokuapp.com/api/fccusers/top/alltime').then(response => response.json())
   }]
 
 class App extends Component {
@@ -13,8 +13,8 @@ class App extends Component {
 
 
     this.state = {
-      recent: [],
-      allTime: []
+      recent: fccCharts[0].fccRecent,
+      allTime: fccCharts[0].fccAllTime
     };
 
     // const getRecent = new Promise((resolve, reject) => {
@@ -22,24 +22,20 @@ class App extends Component {
     // });
 
 //watch video on promises to combine multiple api calls!!!
-    Promise.all(fccCharts)
-    .then((response) => {
-      console.log(response);
-      // response.json()
-    })
-    .then(json => {
-      // console.log(json);
-      // this.setState({
-      //   allTime: json
-      // })
-    })
+    // Promise.all(fccCharts)
+    // .then((response) => {
+    //   this.setState = {
+    //     recent: response[0].fccRecent,
+    //     allTime: response[0].fccAllTime
+    //   }
+    // })
 
   }
   render() {
     return (
       <div className="App">
         My App
-        <Leaderboard rank={this.state.allTime} />
+        <Leaderboard allTime={this.state.allTime} recent={this.state.recent} />
       </div>
     );
   }

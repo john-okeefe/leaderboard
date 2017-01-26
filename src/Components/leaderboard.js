@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Leaderboard = (props) => {
-  console.log(props)
-  console.log(props.rank.map(x => x.username))
+	console.log(props.recent);
+  	console.log(props.allTime);
+  // console.log(props.rank.map(x => x.username))
+    // {props.rank.map(x => x.username)}
   return (
-    <div>Name: {props.rank.map(x => x.username)}</div>
+    <div>Name: 
+    </div>
   )
 }
 
