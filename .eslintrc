@@ -1,5 +1,8 @@
+
 {
-  "ecmaFeatures": {
+"parser": "babel-eslint",
+"parserOptions": { 
+ "ecmaFeatures": {
     "arrowFunctions": true,
     "binaryLiterals": true,
     "blockBindings": true,
@@ -24,7 +27,8 @@
     "globalReturn": true,
     "jsx": true,
     "experimentalObjectRestSpread": true
-  },
+  }
+},
 
   "env": {
     "browser": true,
