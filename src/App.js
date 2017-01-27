@@ -28,15 +28,12 @@ componentDidMount() {
   render() {
     // <Leaderboard allTime={this.state.allTime} recent={this.state.recent} />
     // console.log(this.state.recent)
-
     //getting tip in http://mediatemple.net/blog/tips/loading-and-using-external-data-in-react/
+    const condenseRecent = this.state.recent.map(x => x);
+    const condenseAllTime = this.state.allTime.map(x => x);
     return (
       <div className="App">
-        <h1>People</h1>
-        {this.state.recent.map(person => {
-          return console.log(person)
-        })}
-
+        <Leaderboard recent={condenseRecent} allTime={condenseAllTime} />
       </div>
     );
   }

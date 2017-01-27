@@ -1,15 +1,24 @@
 import React from 'react';
 
 const Leaderboard = (props) => {
-	// console.log(props.recent.then(x => x.map(y => y.username)));
-  // 	console.log(props.allTime);
-  // console.log(props.rank.map(x => x.username))
-    // {props.rank.map(x => x.username)}
-		// {props.recent.then(x => x.map(y => y.username))}
+
+	if(!props.recent){
+		return console.log("Loading...")
+	}else{
+	const recentName = props.recent;
+	const allTimeName = props.allTime.username;
+	console.log(recentName)
   return (
-    <div>Recent Name: {props.recent}
+    <div>
+	    <h1>Recent Name:</h1>
+	    <div>
+	    	<ul>
+	    		{ recentName.map(x => <li>{x.username}</li>) }
+	    	</ul>
+	    </div>
     </div>
   )
+}
 }
 
 export default Leaderboard;
