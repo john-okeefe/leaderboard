@@ -1,13 +1,16 @@
 import React from 'react';
 
 const Leaderboard = (props) => {
-	function compareRecent(a,b) {
-  if (a.recent < b.recent)
-    return -1;
-  if (a.recent > b.recent)
-    return 1;
-  return 0;
-}
+	let recentSorter = (bool) => {
+		if (bool){
+			return (a,b) => b.recent - a.recent;
+		}else{
+			return (a,b) => a.recent - b.recent;
+		}
+	}
+	let recentButtonSort = recentSorter(true);
+
+	
 	if(!props.recent){
 		return console.log("Loading...")
 	}else{
@@ -19,7 +22,7 @@ const Leaderboard = (props) => {
 	    <h1>Recent Name:</h1>
 	    <div>
 	    	<ul>
-	    		{ recentName.sort((a,b) => b.recent - a.recent).map(x => <li>Name: <strong>{x.username}</strong> Recent: <strong>{x.recent}</strong></li>) }
+	    		{ recentName.sort(recentButtonSort).map(x => <li>Name: <strong>{x.username}</strong> Recent: <strong>{x.recent}</strong></li>) }
 	    	</ul>
 	    </div>
     </div>
