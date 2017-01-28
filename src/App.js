@@ -4,8 +4,6 @@ import Leaderboard from './Components/leaderboard';
 import './App.css';
 
   const fccRecent = fetch('https://fcctop100.herokuapp.com/api/fccusers/top/recent').then(response => response.json()).then(json => json);
-  const example = fetch('http://codepen.io/jobs.json').then(response => response.json()).then(json => json)
-  // axios.get("https://fcctop100.herokuapp.com/api/fccusers/top/recent").then(result => console.log(result))
   const fccAllTime = fetch('https://fcctop100.herokuapp.com/api/fccusers/top/alltime').then(response => response.json()).then(json => json);
 
 class App extends Component {
@@ -18,7 +16,7 @@ class App extends Component {
 }
 componentDidMount() {
   let _this = this;
-  this.AllRequests = Promise.all([fccRecent, fccAllTime, example]).then(values => {
+  this.AllRequests = Promise.all([fccRecent, fccAllTime]).then(values => {
     _this.setState({
       recent: values[0],
       allTime: values[1]
