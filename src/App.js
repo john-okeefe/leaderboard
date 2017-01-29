@@ -13,25 +13,20 @@ class App extends Component {
       recent: [],
       allTime: []
     };
-}
-componentDidMount() {
-  let _this = this;
-  this.AllRequests = Promise.all([fccRecent, fccAllTime]).then(values => {
-    _this.setState({
-      recent: values[0],
-      allTime: values[1]
+
+    let _this = this;
+    this.AllRequests = Promise.all([fccRecent, fccAllTime]).then(values => {
+      _this.setState({
+        recent: values[0],
+        allTime: values[1]
+      })
     })
-  })
-}
+  }
+
   render() {
-    // <Leaderboard allTime={this.state.allTime} recent={this.state.recent} />
-    // console.log(this.state.recent)
-    //getting tip in http://mediatemple.net/blog/tips/loading-and-using-external-data-in-react/
-    const condenseRecent = this.state.recent.map(x => x);
-    const condenseAllTime = this.state.allTime.map(x => x);
     return (
       <div className="App">
-        <Leaderboard recent={condenseRecent} allTime={condenseAllTime} />
+        <Leaderboard recent={this.state.recent} allTime={this.state.allTime} />
       </div>
     );
   }
