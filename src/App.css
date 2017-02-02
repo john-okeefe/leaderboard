@@ -22,3 +22,17 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.profile-image {
+
+  with: 75px;
+  height:75px;
+}
+
+.cell {
+  border: 1px solid grey;
+}
+
+.thead-default {
+  border: 1px solid grey;
+}

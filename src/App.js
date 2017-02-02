@@ -19,10 +19,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Leaderboard chart={this.state.chart}
-          recent={() => fccRecent.then(x => this.setState({chart: x}))}
-          allTime={() => fccAllTime.then(x => this.setState({chart: x}))}
-        />
+
+        <div className="container">
+          <div className="boardHeader"><h2>Leaderboard</h2></div>
+          <Leaderboard chart={this.state.chart}
+            recent={() => fccRecent.then(x => this.setState({chart: x}))}
+            allTime={() => fccAllTime.then(x => this.setState({chart: x}))}
+          />
+      </div>
       </div>
     );
   }
