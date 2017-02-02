@@ -10,6 +10,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
+      chart: [],
       recent: [],
       allTime: []
     };
@@ -17,6 +18,7 @@ class App extends Component {
     let _this = this;
     this.AllRequests = Promise.all([fccRecent, fccAllTime]).then(values => {
       _this.setState({
+        chart: values[0],
         recent: values[0],
         allTime: values[1]
       })
@@ -26,7 +28,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Leaderboard recent={this.state.recent} allTime={this.state.allTime} />
+        <Leaderboard chart={this.state.chart} recent={fccRecent} allTime={fccAllTime} />
       </div>
     );
   }
