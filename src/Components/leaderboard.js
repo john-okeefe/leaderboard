@@ -10,8 +10,8 @@ const Leaderboard = ({chart, recent, allTime}) => {
 						<tr>
 							<th className="cell">#</th>
 							<th className="cell">Camper Name</th>
-							<th className="cell" onClick={() => recent()}>Points in the past 30 days</th>
-							<th className="cell" onClick={() => allTime()}>All time points</th>
+							<th className="cell text-center" onClick={() => recent()}>Past 30 Days</th>
+							<th className="cell text-center" onClick={() => allTime()}>All Time</th>
 						</tr>
 					</thead>
 					<tbody>

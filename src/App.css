@@ -1,38 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+
+body {
+    background: rgb(211, 211, 211);
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+h2{
+  font-family: 'Gloria Hallelujah', cursive;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.headerRow {
+  border: 1px solid grey;
 }
 
 .profile-image {
-
-  with: 75px;
-  height:75px;
+  width: 35px;
+  height:35px;
+  margin-right: 10px;
 }
 
 .cell {
   border: 1px solid grey;
 }
 
-.thead-default {
+.boardHeader {
+  margin-top: 20px;
+  padding: 10px;
   border: 1px solid grey;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  background: rgb(0, 170, 11);
 }
