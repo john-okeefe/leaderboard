@@ -10,9 +10,15 @@ class App extends Component {
     super(props);
     this.state = {
       chart: [],
+      recentClass: 'cell text-center active',
+      allTimeClass: 'cell text-center inactive'
     };
 
-    fccRecent.then(x => this.setState({chart: x}))
+    fccRecent.then(x => this.setState({
+      chart: x,
+      recentClass: 'cell text-center active',
+      allTimeClass: 'cell text-center inactive'
+    }))
   }
 
   render() {
@@ -21,8 +27,18 @@ class App extends Component {
         <div className="container">
           <div className="boardHeader"><h2>FreeCodeCamp Leaderboard</h2></div>
           <Leaderboard chart={this.state.chart}
-            recent={() => fccRecent.then(x => this.setState({chart: x}))}
-            allTime={() => fccAllTime.then(x => this.setState({chart: x}))}
+            recent={() => fccRecent.then(x => this.setState({
+              chart: x,
+              recentClass: 'cell text-center active',
+              allTimeClass: 'cell text-center inactive'
+            }))}
+            allTime={() => fccAllTime.then(x => this.setState({
+              chart: x,
+              recentClass: 'cell text-center inactive',
+              allTimeClass: 'cell text-center active'
+            }))}
+            recentClass={this.state.recentClass}
+            allTimeClass={this.state.allTimeClass}
           />
         </div>
       </div>

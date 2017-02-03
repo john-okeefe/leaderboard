@@ -1,7 +1,7 @@
 import React from 'react';
 import LeaderboardItem from './leaderboard-item'
 
-const Leaderboard = ({chart, recent, allTime}) => {
+const Leaderboard = ({chart, recent, allTime, recentClass, allTimeClass}) => {
 	let count = 1;
 		return (
 	    <div>
@@ -10,8 +10,8 @@ const Leaderboard = ({chart, recent, allTime}) => {
 						<tr>
 							<th className="cell">#</th>
 							<th className="cell">Camper Name</th>
-							<th className="cell text-center" onClick={() => recent()}>Past 30 Days</th>
-							<th className="cell text-center" onClick={() => allTime()}>All Time</th>
+							<th className={recentClass} onClick={() => recent()}>Past 30 Days</th>
+							<th className={allTimeClass} onClick={() => allTime()}>All Time</th>
 						</tr>
 					</thead>
 					<tbody>
