@@ -25,21 +25,23 @@ class App extends Component {
     return (
       <div className="App">
         <div className="container">
-          <div className="boardHeader"><h2>FreeCodeCamp Leaderboard</h2></div>
-          <Leaderboard chart={this.state.chart}
-            recent={() => fccRecent.then(x => this.setState({
-              chart: x,
-              recentClass: 'cell text-center active',
-              allTimeClass: 'cell text-center inactive'
-            }))}
-            allTime={() => fccAllTime.then(x => this.setState({
-              chart: x,
-              recentClass: 'cell text-center inactive',
-              allTimeClass: 'cell text-center active'
-            }))}
-            recentClass={this.state.recentClass}
-            allTimeClass={this.state.allTimeClass}
-          />
+          <div className="col-xs-12 col-md-8 offset-md-2">
+            <div className="boardHeader"><h2>FreeCodeCamp Leaderboard</h2></div>
+            <Leaderboard chart={this.state.chart}
+              recent={() => fccRecent.then(x => this.setState({
+                chart: x,
+                recentClass: 'cell text-center active',
+                allTimeClass: 'cell text-center inactive'
+              }))}
+              allTime={() => fccAllTime.then(x => this.setState({
+                chart: x,
+                recentClass: 'cell text-center inactive',
+                allTimeClass: 'cell text-center active'
+              }))}
+              recentClass={this.state.recentClass}
+              allTimeClass={this.state.allTimeClass}
+            />
+          </div>
         </div>
       </div>
     );
